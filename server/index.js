@@ -1,9 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import authRoute from './routes/auth.js'
 
 const app = express();
 
+//Constants
 const PORT = 3002 || 3001;
 
 //Middleware
@@ -11,6 +13,10 @@ const PORT = 3002 || 3001;
 app.use(cors());
 // Для того щоб express розумів що данні з клієнтскої частини будуть приходити у форматі json
 app.use(express.json());
+
+//Routes http://localhost:3002/
+app.use('/api/auth', authRoute);
+
 
 
 async function start() {
