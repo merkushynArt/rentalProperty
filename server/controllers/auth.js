@@ -23,7 +23,7 @@ export const registration = async (req, res) => {
          password: hash,
       });
 
-      //Використовується функція jwt.sign() для створення нового jwt токена, який містить ідентифікатор нового користувача. Також вказано час життя токена – 30 днів.
+      //Використовується функція jwt.sign() для створення нового jwt токена, який містить ідентифікатор нового адміністратора. Також вказано час життя токена – 30 днів.
       const token = jwt.sign(
          {
             id: newAdmin._id,
@@ -41,5 +41,38 @@ export const registration = async (req, res) => {
       });
    } catch(error) {
       res.json({ massage: 'Помилка при створенні адміністратора.' });
+   }
+}
+
+export const login = async (req, res) => {
+   try {
+      const { adminname, password } = req.body;
+
+      const admin = await Admin.findOne({ adminname });
+      if(!adminname) { 
+         return res.json({ massage: 'Такого адмінітратора немає.', }) 
+      }
+
+      //Функція compare перевіряє, чи введений користувачем пароль співпадає з паролем, що зберігається в базі даних.
+      const isPasswordCorrect = await bcrypt.compare(password, admin.password);
+      if(!isPasswordCorrect) {
+         return res.json({ massage: 'Ви невірно ввели пароль.' });
+      }
+
+      const token = jwt.sign(
+         {
+            id: admin._id,
+         },
+         JWT_SECRED,
+         { expiresIn: '30d' },
+      );
+
+      res.json({
+         token,
+         admin,
+         massage: `Вітаю ${ admin.adminname })`,
+      });
+   } catch (error) {
+      res.json({ message: `Помилка при авторизації. ${error}`, });
    }
 }
