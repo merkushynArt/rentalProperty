@@ -7,6 +7,7 @@ const app = express();
 
 //Constants
 const PORT = 3002 || 3001;
+export const JWT_SECRED = 'secredPassword';
 
 //Middleware
 // Для відправки запросів з інших ip-адрусів
