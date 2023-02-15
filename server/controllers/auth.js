@@ -76,3 +76,27 @@ export const login = async (req, res) => {
       res.json({ message: `Помилка при авторизації.`, });
    }
 }
+
+export const getMe = async (req, res) => {
+   try {
+      const admin = await User.findById(req.adminId);
+      if(!admin) {
+         return res.json({ massage: 'Такого адміністратора немає.', })
+      }
+
+      const token = jwt.sign(
+         {
+            id: admin._id,
+         },
+         JWT_SECRED,
+         { expiresIn: '30d' },
+      );
+
+      res.json({
+         admin,
+         token,
+      })
+   } catch (error) {
+      return res.json({ message: 'Немає доступу.', })
+   }
+}

@@ -1,7 +1,9 @@
 import jwt  from "jsonwebtoken";
-import { JWT_SECRED } from "..";
+import { JWT_SECRED } from "../index.js";
+
 
 export const checkAuth = (req, res, next) => {
+   // Вітягуємо сам токен без того що спереду та пробілу завдяки replace(/Bearer\s?/, '');
    const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');
    if(token) {
       try {
