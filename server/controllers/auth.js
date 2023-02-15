@@ -50,7 +50,7 @@ export const login = async (req, res) => {
 
       const admin = await Admin.findOne({ adminname });
       if(!adminname) { 
-         return res.json({ massage: 'Такого адмінітратора немає.', }) 
+         return res.json({ massage: 'Такого адмінітратора немає.', });
       }
 
       //Функція compare перевіряє, чи введений користувачем пароль співпадає з паролем, що зберігається в базі даних.
@@ -67,12 +67,12 @@ export const login = async (req, res) => {
          { expiresIn: '30d' },
       );
 
-      res.json({
+      return res.json({
          token,
          admin,
-         massage: `Вітаю ${ admin.adminname })`,
+         massage: `Вітаю ${ admin.adminname }`,
       });
    } catch (error) {
-      res.json({ message: `Помилка при авторизації. ${error}`, });
+      res.json({ message: `Помилка при авторизації.`, });
    }
 }
