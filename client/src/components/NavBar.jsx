@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { RiHome2Fill } from "react-icons/ri";
+import { IoIosAddCircle } from "react-icons/io";
+import { FaUserCircle } from "react-icons/fa";
 
 export const NavBar = () => {
    return (
-      <nav>
-         <ul>
-            <li>
-               <NavLink exact to="/">Головна</NavLink>
+      <nav className='navbar'>
+         <ul className='navbar__list'>
+            <li className='navbar__list-item'>
+               <NavLink exact to="/"><RiHome2Fill/> Головна</NavLink>
             </li>
-            <li>
-               <NavLink to="/apartments">Усі квартири</NavLink>
-            </li>
-            <li>
-               <NavLink to="/new">Добавити квартиру</NavLink>
+            <li className='navbar__list-item'>
+               <NavLink to="/new"><IoIosAddCircle/> Добавити квартиру</NavLink>
             </li>
          </ul>
 
-         <div>
-            <Link to={'/login'}>Увійти</Link>
+         <div className='navbar__admin'>
+            <NavLink to='/login'><FaUserCircle/></NavLink>
          </div>
       </nav>
    );

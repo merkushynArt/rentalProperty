@@ -4,9 +4,12 @@ import { NavBar } from './NavBar';
 export const Layout = ({ children }) => {
    return (
       <React.Fragment>
-         <div className="container">
+         <div className="navbar-block">
             <NavBar/>
-            { children }
+         </div>
+         
+         <div className="container">
+         { children }
          </div>
       </React.Fragment>
    );
