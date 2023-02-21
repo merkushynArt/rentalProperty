@@ -7,6 +7,8 @@
 body {
    font-family: 'Roboto', sans-serif;
    font-size: 15px;
+   line-height: 18px;
+   background-color: #f2f4f5;
 }
 
 .container {
@@ -14,6 +16,30 @@ body {
    width: 100%;
    margin: 0 auto;
    padding: 0 5px;
+}
+
+.Title {
+   font-size: 30px;
+   line-height: 34px;
+   font-weight: 700;
+}
+
+.title {
+   font-size: 26px;
+   line-height: 30px;
+}
+
+.btn {
+   padding: 10px 20px;
+   border-radius: 10px;
+   background-color: #002f34;
+   text-transform: uppercase;
+   color: #fff;
+   transition: all .1s linear;
+}
+
+.btn:hover {
+   background-color: #00626d;
 }
 /*======================================================================================================*/
 .navbar-block {
@@ -92,3 +118,34 @@ body {
    font-size: 20px;
 }
 /*======================================================================================================*/
+.form {
+   max-width: 460px;
+   width: 100%;
+   background-color: #fff;
+   margin: 10vh auto 0;
+   padding: 10px 20px;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+}
+
+.form__input {
+   width: 100%;
+   font-size: 16px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.form__input input {
+   max-width: 360px;
+   width: 100%;
+   padding: 5px 10px;
+   border: 2px solid #002f34;
+   border-radius: 10px;
+   background-color: #f2f4f5;
+   outline: none;
+   transition: all .1s linear;
+}
