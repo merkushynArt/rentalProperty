@@ -36,6 +36,7 @@ body {
    text-transform: uppercase;
    color: #fff;
    transition: all .1s linear;
+   cursor: pointer;
 }
 
 .btn:hover {
