@@ -6,7 +6,7 @@ import { JWT_SECRED } from "../index.js";
 //Registration admin
 export const registration = async (req, res) => {
    try {
-      //Тут використовуються фігурні дужки, щоб витягти username і password з об'єкта req.body. Це називається деструктуризація об'єкта. Деструктуризація дозволяє отримувати значення з об'єкта чи масиву і надавати їх окремим змінним.
+      //Тут використовуються фігурні дужки, щоб витягти adminname і password з об'єкта req.body. Це називається деструктуризація об'єкта. Деструктуризація дозволяє отримувати значення з об'єкта чи масиву і надавати їх окремим змінним.
       const { adminname, password } = req.body;
 
       const isUsed = await Admin.findOne({ adminname });
@@ -44,6 +44,7 @@ export const registration = async (req, res) => {
    }
 }
 
+//Login admin
 export const login = async (req, res) => {
    try {
       const { adminname, password } = req.body;
@@ -56,7 +57,7 @@ export const login = async (req, res) => {
       //Функція compare перевіряє, чи введений користувачем пароль співпадає з паролем, що зберігається в базі даних.
       const isPasswordCorrect = await bcrypt.compare(password, admin.password);
       if(!isPasswordCorrect) {
-         return res.json({ massage: 'Ви невірно ввели пароль.' });
+         return res.json({ massage: 'Ви невірно ввели пароль.', });
       }
 
       const token = jwt.sign(
@@ -77,9 +78,10 @@ export const login = async (req, res) => {
    }
 }
 
+//Get admin
 export const getMe = async (req, res) => {
    try {
-      const admin = await User.findById(req.adminId);
+      const admin = await Admin.findById(req.adminId);
       if(!admin) {
          return res.json({ massage: 'Такого адміністратора немає.', })
       }

@@ -118,6 +118,24 @@ body {
 .navbar__admin svg {
    font-size: 20px;
 }
+
+.navbar__admin button{
+   height: 40px;
+   padding: 0 10px;
+   display: flex;
+   align-items: center;
+   font-size: 20px;
+   color: #cacaca;
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   transition: all .1s linear;
+}
+
+.navbar__admin button:hover {
+   background-color: #00626d;
+   color: #fff;
+}
 /*======================================================================================================*/
 .form {
    max-width: 460px;
