@@ -17,7 +17,7 @@ export const LoginPage = () => {
       if(isAuth) {
          navigate('/');
          toast(`Вітаю ${admin.adminname}`);
-      }
+      } 
    }, [admin, isAuth, navigate]);
 
    const handleSubmit = () => {
