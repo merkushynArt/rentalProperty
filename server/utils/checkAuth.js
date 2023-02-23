@@ -8,7 +8,7 @@ export const checkAuth = (req, res, next) => {
    if(token) {
       try {
          const decoded = jwt.verify(token, JWT_SECRED);
-         req.adminId = decoded.id
+         req.adminId = decoded.id;
 
          next();
       } catch(error) {

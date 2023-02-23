@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import authRoute from './routes/auth.js'
+import authRoute from './routes/auth.js';
+import apartmentsRoute from './routes/apartments.js';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 //Routes http://localhost:3002/
 app.use('/api/auth', authRoute);
+app.use('/api/apartments', apartmentsRoute);
 
 
 

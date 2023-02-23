@@ -7,7 +7,7 @@ import { JWT_SECRED } from "../index.js";
 export const registration = async (req, res) => {
    try {
       //Тут використовуються фігурні дужки, щоб витягти adminname і password з об'єкта req.body. Це називається деструктуризація об'єкта. Деструктуризація дозволяє отримувати значення з об'єкта чи масиву і надавати їх окремим змінним.
-      const { adminname, password } = req.body;
+      const { adminname, adminPhone, password} = req.body;
 
       const isUsed = await Admin.findOne({ adminname });
       if(isUsed) {
@@ -20,6 +20,7 @@ export const registration = async (req, res) => {
 
       const newAdmin = new Admin({
          adminname,
+         adminPhone,
          password: hash,
       });
 

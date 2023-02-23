@@ -34,12 +34,23 @@ const ApartmentSchema = new mongoose.Schema(
       },
       sellerName: {
          type: String,
+         required: true,
       },
       seller: {
          type: String,
+         required: true,
       },
       commission: {
          type: String,
+         required: true,
+      },
+      sellerPhone: {
+         type: String,
+         required: true,
+      },
+      realtor: {
+         type: mongoose.Schema.Types.ObjectId, 
+         ref: 'Admin',
       },
    },
    { timestamps: true },

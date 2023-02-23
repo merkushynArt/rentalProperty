@@ -4,12 +4,16 @@ const AdminSchema = new monngoose.Schema(
    {
       adminname: {
          type: String,
-         require: true,
+         required: true,
          unique: true,
       },
       password: {
          type: String,
-         require: true,
+         required: true,
+      },
+      adminPhone: {
+         type: String,
+         required: true,
       },
       apartments: [
          {
