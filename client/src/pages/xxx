@@ -1,0 +1,106 @@
+<label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Номер будинку:
+            <input
+               type='text'
+               value={houseNumber}
+               onChange={(e) => setHouseNumber(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Тип будинку:
+            <input
+               type='text'
+               value={houseType}
+               onChange={(e) => setHouseType(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Ціна квартири:
+            <input
+               type='text'
+               value={price}
+               onChange={(e) => setPrice(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Етаж квартири:
+            <input
+               type='text'
+               value={floor}
+               onChange={(e) => setFloor(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Етажність будинку:
+            <input
+               type='text'
+               value={floorMax}
+               onChange={(e) => setFloorMax(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Площа квартири:
+            <input
+               type='text'
+               value={apartmentArea}
+               onChange={(e) => setApartmentArea(e.target.value)}
+            />
+         </label>
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Кількість кімнат:
+            <input
+               type='text'
+               value={numberRooms}
+               onChange={(e) => setNumberRooms(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Санвузел:
+            <input
+               type='text'
+               value={bathroom}
+               onChange={(e) => setBathroom(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Ім'я продавця:
+            <input
+               type='text'
+               value={sellerName}
+               onChange={(e) => setSellerName(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Продавець:
+            <input
+               type='text'
+               value={seller}
+               onChange={(e) => setSeller(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Пропозиція продавця:
+            <input
+               type='text'
+               value={commission}
+               onChange={(e) => setCommission(e.target.value)}
+            />
+         </label>
+
+         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+            Контакт продавця:
+            <input
+               type='text'
+               value={sellerPhone}
+               onChange={(e) => setSellerPhone(e.target.value)}
+            />
+         </label>

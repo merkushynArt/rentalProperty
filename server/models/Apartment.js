@@ -1,5 +1,14 @@
 import mongoose from 'mongoose';
 
+const PostSchema = new mongoose.Schema(
+   {
+      title: { type: String, required: true },
+   },
+   { timestamps: true },
+)
+export default mongoose.model('Post', PostSchema)
+
+/*
 const ApartmentSchema = new mongoose.Schema(
    {
       street: {
@@ -15,7 +24,7 @@ const ApartmentSchema = new mongoose.Schema(
       },
       price: {
          type: String,
-         required: true,
+         //required: true,
       },
       floor: {
          type: String,
@@ -34,19 +43,19 @@ const ApartmentSchema = new mongoose.Schema(
       },
       sellerName: {
          type: String,
-         required: true,
+         //required: true,
       },
       seller: {
          type: String,
-         required: true,
+         //required: true,
       },
       commission: {
          type: String,
-         required: true,
+         //required: true,
       },
       sellerPhone: {
          type: String,
-         required: true,
+         //required: true,
       },
       realtor: {
          type: mongoose.Schema.Types.ObjectId, 
@@ -57,3 +66,4 @@ const ApartmentSchema = new mongoose.Schema(
 );
 
 export default mongoose.model('Apartment', ApartmentSchema);
+*/

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { RiHome2Fill } from "react-icons/ri";
 import { IoIosAddCircle } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
@@ -22,7 +22,7 @@ export const NavBar = () => {
       <nav className='navbar'>
          <ul className='navbar__list'>
             <li className='navbar__list-item'>
-               <NavLink exact to="/"><RiHome2Fill/> Головна</NavLink>
+               <NavLink to="/"><RiHome2Fill/> Головна</NavLink>
             </li>
             {isAuth && (
                <li className='navbar__list-item'>
