@@ -1,12 +1,60 @@
 import mongoose from 'mongoose';
 
-const PostSchema = new mongoose.Schema(
+const ApartmentSchema = new mongoose.Schema(
    {
-      title: { type: String, required: true },
+      street: { 
+         type: String, 
+         required: true,
+      },
+      houseNumber: {
+         type: String,
+      },
+      houseType: {
+         type: String,
+      },
+      price: {
+         type: String,
+         required: true,
+      },
+      floor: {
+         type: String,
+      },
+      floorMax: {
+         type: String,
+      },
+      apartmentArea: {
+         type: String
+      },
+      numberRooms: {
+         type: String,
+      },
+      bathroom: {
+         type: String,
+      },
+      sellerName: {
+         type: String,
+         required: true,
+      },
+      seller: {
+         type: String,
+         required: true,
+      },
+      commission: {
+         type: String,
+         required: true,
+      },
+      sellerPhone: {
+         type: String,
+         required: true,
+      },
+      realtor: {
+         type: mongoose.Schema.Types.ObjectId, 
+         ref: 'Admin',
+      },
    },
    { timestamps: true },
 )
-export default mongoose.model('Post', PostSchema)
+export default mongoose.model('Apartment', ApartmentSchema)
 
 /*
 const ApartmentSchema = new mongoose.Schema(

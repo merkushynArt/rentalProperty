@@ -104,3 +104,17 @@
                onChange={(e) => setSellerPhone(e.target.value)}
             />
          </label>
+
+
+
+   houseType: "царский", 
+	price: "3000", 
+	floor: "2", 
+	floorMax: "5", 
+	apartmentArea: "13", 
+	numberRooms: "3", 
+	bathroom: "раздельный", 
+	sellerName: "Борис", 
+	seller: "хозяин", 
+	commission: "без", 
+	sellerPhone: "133131313",
