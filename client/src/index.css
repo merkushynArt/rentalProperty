@@ -9,6 +9,7 @@ body {
    font-size: 15px;
    line-height: 18px;
    background-color: #f2f4f5;
+   height: 100vh;
 }
 
 .container {
@@ -27,6 +28,12 @@ body {
 .title {
    font-size: 26px;
    line-height: 30px;
+}
+
+.btn-wrapper {
+   margin-top: 20px;
+   display: flex;
+   gap: 20px;
 }
 
 .btn {
@@ -167,4 +174,40 @@ body {
    background-color: #f2f4f5;
    outline: none;
    transition: all .1s linear;
+}
+/*======================================================================================================*/
+.form-apartment {
+   background-color: #fff;
+   padding: 30px;
+   margin-top: 30px;
+   border-radius: 20px;
+}
+
+.form-apartment__list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.form-apartment__list-item {
+   font-size: 18px;
+   line-height: 26px;
+   width: 32%;
+   display: flex;
+   flex-direction: column;
+}
+
+.form-apartment__list-item input,
+.form-apartment__list-item select {
+   font-size: 16px;
+   line-height: 20px;
+   padding: 5px 10px;
+   outline: none;
+   border-radius: 5px;
+   border: 1px solid #002f34;
+}
+
+.form-apartment__list-item input:focus,
+.form-apartment__list-item select:focus {
+   background-color: #f2f4f5;
 }

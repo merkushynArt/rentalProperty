@@ -33,7 +33,7 @@ export const NavBar = () => {
 
          <div className='navbar__admin'>
             {isAuth ? (
-               <button onClick={logoutHandler}><GoSignOut/></button>
+               <NavLink to={'/'} onClick={logoutHandler}><GoSignOut/></NavLink>
             ) : (
                <NavLink to={'/login'}><FaUserCircle/></NavLink>
             )}

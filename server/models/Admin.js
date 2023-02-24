@@ -1,6 +1,6 @@
-import monngoose from 'mongoose';
+import mongoose from 'mongoose';
 
-const AdminSchema = new monngoose.Schema(
+const AdminSchema = new mongoose.Schema(
    {
       adminname: {
          type: String,
@@ -17,7 +17,7 @@ const AdminSchema = new monngoose.Schema(
       },
       apartments: [
          {
-            type: monngoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Apartment',
          },
       ],
@@ -26,4 +26,4 @@ const AdminSchema = new monngoose.Schema(
    {timestamps: true},
 );
 
-export default monngoose.model('Admin', AdminSchema);
+export default mongoose.model('Admin', AdminSchema);
