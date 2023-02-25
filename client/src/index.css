@@ -211,3 +211,13 @@ body {
 .form-apartment__list-item select:focus {
    background-color: #f2f4f5;
 }
+
+.form-apartment__list-item:last-child {
+   width: 100%;
+}
+
+.form-apartment__list-item textarea{
+   min-height: 200px;
+   font-size: 16px;
+   line-height: 20px;
+}

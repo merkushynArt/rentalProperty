@@ -52,6 +52,9 @@ const ApartmentSchema = new mongoose.Schema(
          type: mongoose.Schema.Types.ObjectId, 
          ref: 'Admin',
       },
+      description: {
+         type: String,
+      }
    },
    { timestamps: true },
 );

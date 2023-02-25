@@ -8,9 +8,9 @@ const initialState = {
 
 export const createApartment = createAsyncThunk(
    'apartment/createApartment',
-   async ({ street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone }) => {
+   async ({ street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description }) => {
       try {
-         const { data } = await axios.post('/apartments', { street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone });
+         const { data } = await axios.post('/apartments', { street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description });
          return data;
       } catch (error) {
          console.log(error);

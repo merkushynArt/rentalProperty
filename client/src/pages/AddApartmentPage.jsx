@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createApartment } from '../redux/features/apartments/apartmentSlice';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const AddApartmentPage = () => {
    const [street, setStreet] = useState('');
@@ -18,13 +19,14 @@ export const AddApartmentPage = () => {
    const [sellerType, setSellerType] = useState('');
    const [commission, setCommission] = useState('');
    const [sellerPhone, setSellerPhone] = useState('');
+   const [description, setDescription] = useState('');
 
    const dispatch = useDispatch();
    const navigate = useNavigate();
 
    const submitHandler = (e) => {
       try {
-         dispatch(createApartment({ street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone }))
+         dispatch(createApartment({ street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description }))
          navigate('/')
       } catch (error) {
          console.log(error);
@@ -46,6 +48,7 @@ export const AddApartmentPage = () => {
       setSellerType('');
       setCommission('');
       setSellerPhone('');
+      setDescription('');
    }
 
    return (
@@ -199,6 +202,14 @@ export const AddApartmentPage = () => {
                   type='text'
                   value={sellerPhone}
                   onChange={(e) => setSellerPhone(e.target.value)}
+               />
+            </label>
+
+            <label className='form-apartment__list-item'>
+               Опис квартири:
+               <TextareaAutosize
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                />
             </label>
          </div>
