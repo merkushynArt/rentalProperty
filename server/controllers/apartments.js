@@ -4,7 +4,7 @@ import Admin from '../models/Admin.js';
 // Create apartment
 export const createApartment = async (req, res) => {
    try {
-      const { street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, } = req.body;
+      const { street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img } = req.body;
       const admin = await Admin.findById(req.adminId);
 
       const newApartment = new Apartment({
@@ -23,6 +23,7 @@ export const createApartment = async (req, res) => {
          commission, 
          sellerPhone,
          description,
+         img,
          adminname: admin.adminname,
          realtorAdmin: req.adminId,
       });

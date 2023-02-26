@@ -186,7 +186,7 @@ body {
 .form-apartment__list {
    display: flex;
    flex-wrap: wrap;
-   gap: 10px;
+   gap: 19px;
 }
 
 .form-apartment__list-item {
@@ -198,7 +198,8 @@ body {
 }
 
 .form-apartment__list-item input,
-.form-apartment__list-item select {
+.form-apartment__list-item select,
+.form-apartment__list-item textarea {
    font-size: 16px;
    line-height: 20px;
    padding: 5px 10px;
@@ -208,7 +209,8 @@ body {
 }
 
 .form-apartment__list-item input:focus,
-.form-apartment__list-item select:focus {
+.form-apartment__list-item select:focus,
+.form-apartment__list-item textarea:focus {
    background-color: #f2f4f5;
 }
 
@@ -218,6 +220,35 @@ body {
 
 .form-apartment__list-item textarea{
    min-height: 200px;
+}
+
+.form-apartment__img {
+   font-size: 18px;
+   line-height: 26px;
+   margin-top: 20px;
+   display: flex;
+   flex-direction: column;
+}
+
+.form-apartment__img-item {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 10px;
+}
+
+.form-apartment__img-item input {
    font-size: 16px;
    line-height: 20px;
+   padding: 5px 10px;
+   outline: none;
+   border-radius: 5px;
+   border: 1px solid #002f34;
+}
+
+.form-apartment__img-item input:focus {
+   background-color: #f2f4f5;
+}
+
+.form-apartment__img-item img{
+   max-width: 400px;
 }

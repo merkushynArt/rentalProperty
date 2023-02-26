@@ -20,14 +20,21 @@ export const AddApartmentPage = () => {
    const [commission, setCommission] = useState('');
    const [sellerPhone, setSellerPhone] = useState('');
    const [description, setDescription] = useState('');
+   const [img, setImg] = useState(Array(7).fill(''));
 
    const dispatch = useDispatch();
    const navigate = useNavigate();
 
+   const handleImageChange = (event, index) => {
+      const newImg = [...img];
+      newImg[index] = event.target.value;
+      setImg(newImg);
+   };
+
    const submitHandler = (e) => {
       try {
-         dispatch(createApartment({ street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description }))
-         navigate('/')
+         dispatch(createApartment({ street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }));
+         navigate('/');
       } catch (error) {
          console.log(error);
       }
@@ -212,6 +219,17 @@ export const AddApartmentPage = () => {
                   onChange={(e) => setDescription(e.target.value)}
                />
             </label>
+
+         </div>
+
+         <div className='form-apartment__img'>
+            <span>Фото квартири</span>
+            {img.map((img, index) => (
+            <div className='form-apartment__img-item' key={index}>
+               <input type="text" placeholder='Введіть url зображення' value={img} onChange={(event) => handleImageChange(event, index)} />
+               <img src={img} alt={``} />
+            </div>
+            ))}
          </div>
 
          <div className='btn-wrapper'>
