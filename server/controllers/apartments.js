@@ -37,3 +37,15 @@ export const createApartment = async (req, res) => {
       res.json({ message: `Что-то пошло не так. ${error}` });
    }
 }
+
+//Get all apartments
+export const getAll = async (req, res) => {
+   try {
+      const apartments = await Apartment.find().sort('-createdAt');
+      if(!apartments) {
+         res.json({ massage: 'Квартир немає.' });
+      }
+   } catch (error) {
+      res.json({ massage: 'Щось пішло не так' });
+   }
+}
