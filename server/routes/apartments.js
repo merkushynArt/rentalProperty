@@ -10,6 +10,6 @@ router.post('/', checkAuth, createApartment);
 
 //Get all apartments
 //http://localhost:3002/api/apartments
-router.get('/', checkAuth, getAll);
+router.get('/', getAll);
 
 export default router;

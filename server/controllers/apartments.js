@@ -45,6 +45,8 @@ export const getAll = async (req, res) => {
       if(!apartments) {
          res.json({ massage: 'Квартир немає.' });
       }
+
+      res.json({ apartments });
    } catch (error) {
       res.json({ massage: 'Щось пішло не так' });
    }

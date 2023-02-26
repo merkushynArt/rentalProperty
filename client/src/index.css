@@ -252,3 +252,35 @@ body {
 .form-apartment__img-item img{
    max-width: 400px;
 }
+/*======================================================================================================*/
+.main-page {
+   margin-top: 20px;
+}
+/*======================================================================================================*/
+.apartment-block {
+   max-width: 500px;
+   padding: 20px;
+   border-radius: 20px;
+   background-color: #fff;
+   margin: 0 auto;
+}
+
+.apartment-block__img img{
+   min-height: 300px;
+   width: 100%;
+}
+.apartment-block__info {
+   font-size: 20px;
+   line-height: 26px;
+}
+
+.apartment-block__info-item {
+   display: flex;
+   justify-content: space-between;
+   gap: 5px;
+}
+
+.apartment-block__info-item:last-child {
+   font-size: 16px;
+   line-height: 16px;
+}
