@@ -5,6 +5,7 @@ import { createApartment } from '../redux/features/apartments/apartmentSlice';
 import TextareaAutosize from 'react-textarea-autosize';
 
 export const AddApartmentPage = () => {
+   const [title, setTitle] = useState('');
    const [street, setStreet] = useState('');
    const [houseNumber, setHouseNumber] = useState('');
    const [metro, setMetro] = useState('');
@@ -33,7 +34,7 @@ export const AddApartmentPage = () => {
 
    const submitHandler = (e) => {
       try {
-         dispatch(createApartment({ street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }));
+         dispatch(createApartment({ title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }));
          navigate('/');
       } catch (error) {
          console.log(error);
@@ -41,6 +42,7 @@ export const AddApartmentPage = () => {
    }
 
    const clearFormHandler = () => {
+      setTitle('');
       setStreet('');
       setHouseNumber('');
       setMetro('');
@@ -66,6 +68,15 @@ export const AddApartmentPage = () => {
          <h2 className='Title'>Створити квартиру</h2>
 
          <div className='form-apartment__list'>
+            <label className='form-apartment__list-item'>
+               Заголовок оголошення:
+               <input
+                  type='text'
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+               />
+            </label>
+
             <label className='form-apartment__list-item'>
                Назва вулиці:
                <input

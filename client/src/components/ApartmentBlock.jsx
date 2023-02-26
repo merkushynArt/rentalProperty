@@ -14,9 +14,7 @@ export const ApartmentBlock = ({ apartment }) => {
          </div>
          <div className="apartment-block__info">
             <div className='apartment-block__info-item'>
-               <div>
-                  {apartment.street}<span>{apartment.houseNumber}</span>
-               </div>
+               <div>{apartment.title}</div>
                <div className='apartment-block__info-price'>{apartment.price}</div>
             </div>
             <div className='apartment-block__info-item'>
