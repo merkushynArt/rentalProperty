@@ -46,6 +46,17 @@ export const apartmentSlice = createSlice({
       [createApartment.rejected]: (state) => {
          state.loading = false;
       },
+      //Get all apartments
+      [getAllApartments.pending]: (state) => {
+         state.loading = true;
+      },
+      [getAllApartments.fulfilled]: (state, action) => {
+         state.loading = false;
+         state.apartments = action.payload.apartments;
+      },
+      [getAllApartments.rejected]: (state) => {
+         state.loading = false;
+      },
    },
 });
 
