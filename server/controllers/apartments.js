@@ -52,3 +52,14 @@ export const getAll = async (req, res) => {
       res.json({ massage: 'Щось пішло не так' });
    }
 }
+
+//Get apartment By Id
+export const getById = async (req, res) => {
+   try {
+      const apartment = await Apartment.findById(req.params.id);
+
+      res.json(apartment);
+   } catch (error) {
+      res.json({ massage: 'Щось пішло не так' });
+   }
+}
