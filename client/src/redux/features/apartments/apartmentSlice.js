@@ -18,6 +18,18 @@ export const createApartment = createAsyncThunk(
    }
 );
 
+export const getAllApartments = createAsyncThunk(
+   'apartment/getAllApartments',
+   async () => {
+      try {
+         const { data } = await axios.get('/apartments');
+         return data;
+      } catch (error) {
+         console.log(error);
+      }
+   }
+);
+
 export const apartmentSlice = createSlice({
    name: 'apartment',
    initialState,
