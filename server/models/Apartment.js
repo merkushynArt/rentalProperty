@@ -52,6 +52,9 @@ const ApartmentSchema = new mongoose.Schema(
       adminname: { 
          type: String ,
       },
+      adminPhone: {
+         type: String,
+      },
       realtorAdmin: {
          type: mongoose.Schema.Types.ObjectId, 
          ref: 'Admin',

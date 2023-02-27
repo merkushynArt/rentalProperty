@@ -26,6 +26,7 @@ export const createApartment = async (req, res) => {
          description,
          img,
          adminname: admin.adminname,
+         adminPhone: admin.adminPhone,
          realtorAdmin: req.adminId,
       });
 
