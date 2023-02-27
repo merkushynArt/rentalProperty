@@ -14,7 +14,7 @@ export const MainPage = () => {
 
    if (!apartments.length) {
       return (
-         <div>Немає квартир</div>
+         <div>Загрузка...</div>
       )
    }
 
