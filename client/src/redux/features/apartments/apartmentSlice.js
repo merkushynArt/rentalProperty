@@ -30,6 +30,18 @@ export const getAllApartments = createAsyncThunk(
    }
 );
 
+export const removeApartment = createAsyncThunk(
+   'apartment/removeApartment',
+   async (id) => {
+      try {
+         const { data } = await axios.delete(`/apartments/${id}`, id);
+         return data;
+      } catch (error) {
+         console.log(error);
+      }
+   }
+)
+
 export const apartmentSlice = createSlice({
    name: 'apartment',
    initialState,
@@ -57,6 +69,19 @@ export const apartmentSlice = createSlice({
       [getAllApartments.rejected]: (state) => {
          state.loading = false;
       },
+      //Removal of the apartment
+      [removeApartment.pending]: (state) => {
+         state.loading = true;
+      },
+      [removeApartment.fulfilled]: (state, action) => {
+         state.loading = false;
+         state.apartments = state.apartments.filter(
+            (apartment) => apartment._id !== action.payload._id,
+         );
+      },
+      [removeApartment.rejected]: (state) => {
+         state.loading = false;
+      }
    },
 });
 
