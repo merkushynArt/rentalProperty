@@ -9,7 +9,8 @@ body {
    font-size: 15px;
    line-height: 18px;
    background-color: #f2f4f5;
-   height: 100vh;
+   min-height: 100vh;
+   height: auto;
 }
 
 .container {
@@ -349,7 +350,9 @@ body {
 }
 
 .apartment-page__secred {
-   text-align: center;
+   display: flex;
+   justify-content: space-between;
+   gap: 10px;
 }
 
 .apartment-page__secred-name {
@@ -359,9 +362,7 @@ body {
 
 .apartment-page__secred-list {
    display: flex;
-   justify-content: center;
    gap: 5px;
-   margin-bottom: 20px;
 }
 
 .apartment-page__secred-list span {
@@ -371,6 +372,26 @@ body {
    border-radius: 20px;
    background-color: #00626d;
    width: auto;
+}
+
+.btn.secred {
+   display: block;
+   margin-top: 10px;
+}
+
+.apartment-page__secred-bts button {
+   display: flex;
+   align-items: center;
+   background: transparent;
+   font-size: 30px;
+   color: #002f34;
+   transition: all .1s linear;
+   border: none;
+   cursor: pointer;
+}
+
+.apartment-page__secred-bts button:hover{
+   color: #00626d;
 }
 /*======================================================================================================*/
 .mySwiper {

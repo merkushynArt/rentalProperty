@@ -75,6 +75,7 @@ export const apartmentSlice = createSlice({
       },
       [removeApartment.fulfilled]: (state, action) => {
          state.loading = false;
+         //метод filter поверне новий масив без того елементу(action.payload._id) котрий потрібно видалити(шукаю всі квартири у яких id неспівпадає з (action.payload._id)
          state.apartments = state.apartments.filter(
             (apartment) => apartment._id !== action.payload._id,
          );

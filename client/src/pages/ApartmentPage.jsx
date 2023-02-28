@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from '../utils/axios.js';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -7,13 +7,29 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { checkIsAuth } from '../redux/features/auth/authSlice.js';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { AiFillDelete } from 'react-icons/ai';
+import { removeApartment } from '../redux/features/apartments/apartmentSlice.js';
+import { toast } from 'react-toastify'
 
 export const ApartmentPage = () => {
    const [apartment, setApartment] = useState(null);
 
    const params = useParams();
    const isAuth = useSelector(checkIsAuth);
+   const { admin } = useSelector((state) => state.auth);
+   const dispatch = useDispatch();
+   const navigate = useNavigate()
+
+   const removeApartmentHandler = () => {
+      try {
+         dispatch(removeApartment(params.id));
+         toast('Ви успішно видалили квартиру');
+         navigate('/');
+      } catch (error) {
+         console.log(error);
+      }
+   }
 
    const fetchApartment = useCallback(async () => {
       const { data } = await axios.get(`/apartments/${params.id}`)
@@ -88,12 +104,21 @@ export const ApartmentPage = () => {
 
          {isAuth? (
             <div className='apartment-page__secred'>
-               <div className='apartment-page__secred-name'>{apartment.sellerName}</div>
-               <div className='apartment-page__secred-list'>
-                  <span>{apartment.sellerType}</span>
-                  <span>{apartment.commission}</span>
+               <div>
+                  <div className='apartment-page__secred-name'>{apartment.sellerName}</div>
+                  <div className='apartment-page__secred-list'>
+                     <span>{ apartment.sellerType }</span>
+                     <span>{ apartment.commission }</span>
+                  </div>
+                  <a className='btn secred' href={`tel:${apartment.sellerPhone}`}>{ apartment.sellerPhone }</a>
                </div>
-               <a className='btn' href={`tel:${apartment.sellerPhone}`}>{apartment.sellerPhone}</a>
+               {admin?._id === apartment.realtorAdmin && (
+                  <div className='apartment-page__secred-bts'>
+                     <button onClick={removeApartmentHandler}>
+                        <AiFillDelete/>
+                     </button>
+                  </div>
+               )}
             </div>
             ) : (
                <div className='apartment-page__contacts'>
@@ -101,6 +126,8 @@ export const ApartmentPage = () => {
                </div>
             )
          }
+
+         
       </div>
    );
 }
