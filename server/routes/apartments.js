@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createApartment, getAll, getById } from '../controllers/apartments.js';
+import { createApartment, getAll, getById, removeApartment } from '../controllers/apartments.js';
 import { checkAuth } from '../utils/checkAuth.js';
 
 const router = new Router();
@@ -12,8 +12,12 @@ router.post('/', checkAuth, createApartment);
 //http://localhost:3002/api/apartments
 router.get('/', getAll);
 
-// Get apartment By Id
+// Get apartment by id
 // http://localhost:3002/api/apartment/:id
 router.get('/:id', getById);
+
+//Remove apartment
+//http://localhost:3002/api/apartment/:id
+router.delete('/:id', checkAuth, removeApartment);
 
 export default router;

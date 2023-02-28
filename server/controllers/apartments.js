@@ -64,3 +64,21 @@ export const getById = async (req, res) => {
       res.json({ massage: 'Щось пішло не так' });
    }
 }
+
+//Remove apartment
+export const removeApartment = async (req, res) => {
+   try {
+      const apartment = await Apartment.findByIdAndDelete(req.params.id);
+      if(!apartment) {
+         return res.json({ message: 'Такого посту немає.' });
+      }
+
+      await Admin.findByIdAndUpdate( req.adminId, {
+         $pull: { apartments: req.params.id },
+      });
+
+      return res.json({ message: 'Квартира успішно видалена з бази.' });
+   } catch (error) {
+      res.json({ message: 'Щось пішло не так.' });
+   }
+}
