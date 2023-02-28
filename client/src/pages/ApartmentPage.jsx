@@ -98,9 +98,9 @@ export const ApartmentPage = () => {
             </div>
          </div>
 
-         <div className="apartment-page__description">
+         <p className="apartment-page__description">
             { apartment.description }
-         </div>
+         </p>
 
          {isAuth? (
             <div className='apartment-page__secred'>
