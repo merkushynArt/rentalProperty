@@ -379,7 +379,14 @@ body {
    margin-top: 10px;
 }
 
-.apartment-page__secred-bts button {
+.apartment-page__secred-bts {
+   display: flex;
+   gap: 20px;
+   align-items: flex-start;
+}
+
+.apartment-page__secred-bts button,
+.apartment-page__secred-bts a {
    display: flex;
    align-items: center;
    background: transparent;
@@ -390,7 +397,8 @@ body {
    cursor: pointer;
 }
 
-.apartment-page__secred-bts button:hover{
+.apartment-page__secred-bts button:hover,
+.apartment-page__secred-bts a:hover {
    color: #00626d;
 }
 /*======================================================================================================*/

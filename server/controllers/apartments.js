@@ -83,32 +83,4 @@ export const removeApartment = async (req, res) => {
    }
 }
 
-//Remove apartment
-export const updateApartment = async (req, res) => {
-   try {
-      const { title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img } = req.body;
 
-      const apartment = await Apartment.findById(id);
-      apartment.title = title;
-      apartment.street = street;
-      apartment.houseNumber = houseNumber;
-      apartment.metro = metro;
-      apartment.houseType = houseType;
-      apartment.price = price;
-      apartment.floor = floor;
-      apartment.floorMax = floorMax;
-      apartment.apartmentArea = apartmentArea;
-      apartment.numberRooms = numberRooms;
-      apartment.bathroom = bathroom;
-      apartment.sellerName = sellerName;
-      apartment.sellerType = sellerType;
-      apartment.commission = commission;
-      apartment.sellerPhone = sellerPhone;
-      apartment.description = description;
-      apartment.img = img;
-
-      res.json(apartment);
-   } catch (error) {
-      res.json({ message: 'Щось пішло не так.' });
-   }
-}

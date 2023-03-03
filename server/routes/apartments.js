@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createApartment, getAll, getById, removeApartment, updateApartment } from '../controllers/apartments.js';
+import { createApartment, getAll, getById, removeApartment } from '../controllers/apartments.js';
 import { checkAuth } from '../utils/checkAuth.js';
 
 const router = new Router();
@@ -20,7 +20,4 @@ router.get('/:id', getById);
 //http://localhost:3002/api/apartment/:id
 router.delete('/:id', checkAuth, removeApartment);
 
-//Update apartment
-//http://localhost:3002/api/apartment/:id
-router.put('/:id', checkAuth, updateApartment);
 export default router;

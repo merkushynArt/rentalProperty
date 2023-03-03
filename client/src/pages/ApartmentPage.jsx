@@ -10,7 +10,7 @@ import { checkIsAuth } from '../redux/features/auth/authSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiFillDelete } from 'react-icons/ai';
 import { removeApartment } from '../redux/features/apartments/apartmentSlice.js';
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
 
 export const ApartmentPage = () => {
    const [apartment, setApartment] = useState(null);
@@ -42,7 +42,7 @@ export const ApartmentPage = () => {
 
    if (!apartment) {
       return (
-         <div className='text-xl text-center text-white py-10'>
+         <div>
             Загрузка...
          </div>
       )

@@ -58,6 +58,7 @@ export const AddApartmentPage = () => {
       setCommission('');
       setSellerPhone('');
       setDescription('');
+      setImg('');
    }
 
    return (

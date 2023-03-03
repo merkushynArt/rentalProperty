@@ -40,7 +40,7 @@ export const removeApartment = createAsyncThunk(
          console.log(error);
       }
    }
-)
+);
 
 export const apartmentSlice = createSlice({
    name: 'apartment',
@@ -82,7 +82,7 @@ export const apartmentSlice = createSlice({
       },
       [removeApartment.rejected]: (state) => {
          state.loading = false;
-      }
+      },
    },
 });
 
