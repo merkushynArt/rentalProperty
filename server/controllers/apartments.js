@@ -108,7 +108,8 @@ export const removeApartment = async (req, res) => {
 
 export const updateApartment = async (req, res) => {
    try {
-      const { title,
+      const { 
+         title,
          street,
          houseNumber,
          metro,
@@ -124,7 +125,8 @@ export const updateApartment = async (req, res) => {
          commission, 
          sellerPhone,
          description,
-         img, id } = req.body;
+         img, 
+         id } = req.body;
 
 
       const apartment = await Apartment.findById(id);
@@ -154,125 +156,3 @@ export const updateApartment = async (req, res) => {
       res.json({ message: `Щось пішло не так. ${error}` });
    }
 }
-/*
-export const updateApartment = async (req, res) => {
-   try {
-     const { id } = req.params;
-     const { 
-         title,
-         street,
-         houseNumber,
-         metro,
-         houseType,
-         price,
-         floor, 
-         floorMax, 
-         apartmentArea, 
-         numberRooms, 
-         bathroom, 
-         sellerName, 
-         sellerType, 
-         commission, 
-         sellerPhone,
-         description,
-         img, 
-      } = req.body;
-
-      if (!title || !street || !houseNumber || !metro || !houseType || !price || !floor || !floorMax || !apartmentArea || !numberRooms || !bathroom || !sellerName || !sellerType || !commission || !sellerPhone || !description || !img) {
-         return res.status(400).json({ message: 'Недостаточно данных для обновления квартиры' });
-       }
- 
-       const apartment = await Apartment.findByIdAndUpdate(
-         id,
-         {
-           title,
-           street,
-           houseNumber,
-           metro,
-           houseType,
-           price,
-           floor,
-           floorMax,
-           apartmentArea,
-           numberRooms,
-           bathroom,
-           sellerName,
-           sellerType,
-           commission,
-           sellerPhone,
-           description,
-           img,
-         },
-         { new: true }
-       );
- 
-       if (!apartment) {
-         return res.status(404).json({ message: 'Квартира не найдена' });
-       }
- 
-     res.json(apartment);
-   } catch (error) {
-     console.error(error);
-     res.status(500).json({ message: `Внутренняя ошибка сервера...${error}` });
-   }
- };
-*/
-/*
-export const updateApartment = async (req, res) => {
-   try {
-     const { id } = req.params;
-     const {
-       title,
-       street,
-       houseNumber,
-       metro,
-       houseType,
-       price,
-       floor,
-       floorMax,
-       apartmentArea,
-       numberRooms,
-       bathroom,
-       sellerName,
-       sellerType,
-       commission,
-       sellerPhone,
-       description,
-       img,
-     } = req.body;
- 
-     const apartment = await Apartment.findByIdAndUpdate(
-       id,
-       {
-         title,
-         street,
-         houseNumber,
-         metro,
-         houseType,
-         price,
-         floor,
-         floorMax,
-         apartmentArea,
-         numberRooms,
-         bathroom,
-         sellerName,
-         sellerType,
-         commission,
-         sellerPhone,
-         description,
-         img,
-       },
-       { new: true }
-     );
- 
-     if (!apartment) {
-       return res.status(404).json({ message: 'Квартира не найдена' });
-     }
- 
-     res.json(apartment);
-   } catch (error) {
-     console.error(error);
-     res.status(500).json({ message: `Внутренняя ошибка сервера...${error}` });
-   }
- };
-*/

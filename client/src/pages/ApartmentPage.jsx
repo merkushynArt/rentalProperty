@@ -114,9 +114,6 @@ export const ApartmentPage = () => {
                </div>
                {admin?._id === apartment.realtorAdmin && (
                   <div className='apartment-page__secred-bts'>
-                     <Link to={`/${params.id}/edit`}>
-                        <AiTwotoneEdit />
-                     </Link>
                      <button onClick={removeApartmentHandler}>
                         <AiFillDelete/>
                      </button>
