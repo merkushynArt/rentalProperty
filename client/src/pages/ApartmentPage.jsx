@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from '../utils/axios.js';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { checkIsAuth } from '../redux/features/auth/authSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { AiFillDelete } from 'react-icons/ai';
+import { AiTwotoneEdit, AiFillDelete } from 'react-icons/ai';
 import { removeApartment } from '../redux/features/apartments/apartmentSlice.js';
 import { toast } from 'react-toastify';
 
@@ -114,6 +114,9 @@ export const ApartmentPage = () => {
                </div>
                {admin?._id === apartment.realtorAdmin && (
                   <div className='apartment-page__secred-bts'>
+                     <Link to={`/${params.id}/edit`}>
+                        <AiTwotoneEdit />
+                     </Link>
                      <button onClick={removeApartmentHandler}>
                         <AiFillDelete/>
                      </button>

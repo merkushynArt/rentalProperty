@@ -1,22 +1,23 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../utils/axios.js';
-
+/*
 const initialState = {
    apartments: [],
    loading: false,
 }
-
+*/
 export const createApartment = createAsyncThunk(
    'apartment/createApartment',
-   async ({ title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }) => {
+   async ( params/*{ title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }*/) => {
       try {
-         const { data } = await axios.post('/apartments', { title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img });
+         const { data } = await axios.post('/apartments', params /*{ title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }*/);
          return data;
       } catch (error) {
          console.log(error);
       }
    }
 );
+
 
 export const getAllApartments = createAsyncThunk(
    'apartment/getAllApartments',
@@ -42,6 +43,21 @@ export const removeApartment = createAsyncThunk(
    }
 );
 
+export const updateApartment = createAsyncThunk(
+   'apartment/updateApartment',
+   async (updatedApartment) => {
+      try {
+         const { data } = await axios.put(
+               `/apartments/${updatedApartment.id}`,
+               updatedApartment,
+         )
+         return data;
+      } catch (error) {
+         console.log(error);
+      }
+   },
+);
+/*
 export const apartmentSlice = createSlice({
    name: 'apartment',
    initialState,
@@ -85,5 +101,81 @@ export const apartmentSlice = createSlice({
       },
    },
 });
+*/
+
+// Update post
+/*
+[updateApartment.pending]: (state) => {
+   state.loading = true;
+},
+[updateApartment.fulfilled]: (state, action) => {
+   state.loading = false;
+   const index = state.posts.findIndex(
+      (apartment) => apartment._id === action.payload._id
+   )
+   state.apartments[index] = action.payload;
+},
+[updateApartment.rejected]: (state) => {
+   state.loading = false;
+},
+*/
+
+export const apartmentSlice = createSlice({
+   name: 'apartment',
+   initialState: {
+      loading: false,
+      apartments: [],
+   },
+   reducers: {},
+   extraReducers: (builder) => {
+      builder
+      .addCase(createApartment.pending, (state) => {
+         state.loading = true;
+      })
+      .addCase(createApartment.fulfilled, (state, action) => {
+         state.loading = false;
+         state.apartments.push(action.payload);
+      })
+      .addCase(createApartment.rejected, (state) => {
+         state.loading = false;
+      })
+      .addCase(getAllApartments.pending, (state) => {
+         state.loading = true;
+      })
+      .addCase(getAllApartments.fulfilled, (state, action) => {
+         state.loading = false;
+         state.apartments = action.payload.apartments;
+      })
+      .addCase(getAllApartments.rejected, (state) => {
+         state.loading = false;
+      })
+      .addCase(removeApartment.pending, (state) => {
+         state.loading = true;
+      })
+      .addCase(removeApartment.fulfilled, (state, action) => {
+         state.loading = false;
+         state.apartments = state.apartments.filter(
+         (apartment) => apartment._id !== action.payload._id
+         );
+      })
+      .addCase(removeApartment.rejected, (state) => {
+         state.loading = false;
+      })
+      .addCase(updateApartment.pending, (state) => {
+         state.loading = true;
+      })
+      .addCase(updateApartment.fulfilled, (state, action) => {
+         state.loading = false;
+         const index = state.posts.findIndex(
+            (apartment) => apartment._id === action.payload._id
+         )
+         state.apartments[index] = action.payload;
+      })
+      .addCase(updateApartment.rejected, (state) => {
+         state.loading = false;
+      });
+   },
+});
+
 
 export default apartmentSlice.reducer;

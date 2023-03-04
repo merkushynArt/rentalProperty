@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { createApartment } from '../redux/features/apartments/apartmentSlice';
+import { useNavigate, useParams } from 'react-router-dom';
 import TextareaAutosize from 'react-textarea-autosize';
+import { updateApartment } from '../redux/features/apartments/apartmentSlice.js';
+import axios from '../utils/axios.js';
 
-export const AddApartmentPage = () => {
+export const EditApartment = () => {
    const [apartmentData, setApartmentData] = useState({
       title: '',
       street: '',
@@ -27,21 +28,53 @@ export const AddApartmentPage = () => {
 
    const dispatch = useDispatch();
    const navigate = useNavigate();
+   const params = useParams();
+
+   const fetchApartment = useCallback(async () => {
+      const { data } = await axios.get(`/apartments/${params.id}`);
+      setApartmentData(data);
+   }, [params.id]);
+
+   useEffect(() => {
+      if (params.id) {
+         fetchApartment();
+      }
+   }, [fetchApartment, params.id]);
+
+   const submitHandler = () => {
+      console.log('apartmentData:', apartmentData);
+      try {
+         const updatedApartment = {
+         title: apartmentData.title ? apartmentData.title : '',
+         street: apartmentData.street ? apartmentData.street : '',
+         houseNumber: apartmentData.houseNumber ? apartmentData.houseNumber : '',
+         metro: apartmentData.metro ? apartmentData.metro : '',
+         houseType: apartmentData.houseType ? apartmentData.houseType : '',
+         price: apartmentData.price ? apartmentData.price : '',
+         floor: apartmentData.floor ? apartmentData.floor : '',
+         floorMax: apartmentData.floorMax ? apartmentData.floorMax : '',
+         apartmentArea: apartmentData.apartmentArea ? apartmentData.apartmentArea : '',
+         numberRooms: apartmentData.numberRooms ? apartmentData.numberRooms : '',
+         bathroom: apartmentData.bathroom ? apartmentData.bathroom : '',
+         sellerName: apartmentData.sellerName ? apartmentData.sellerName : '',
+         sellerType: apartmentData.sellerType ? apartmentData.sellerType : '',
+         commission: apartmentData.commission ? apartmentData.commission : '',
+         sellerPhone: apartmentData.sellerPhone ? apartmentData.sellerPhone : '',
+         description: apartmentData.description ? apartmentData.description : '',
+         img: apartmentData.img ? apartmentData.img : '',
+      };
+         dispatch(updateApartment(updatedApartment));
+         navigate('/');
+      } catch (error) {
+         console.log(error);
+      }
+   }
 
    const handleImageChange = (event, index) => {
       const newImg = [...apartmentData.img];
       newImg[index] = event.target.value;
       setApartmentData({ ...apartmentData, img: newImg });
    };
-
-   const submitHandler = () => {
-      try {
-         dispatch(createApartment(apartmentData));
-         navigate('/');
-      } catch (error) {
-         console.log(error);
-      }
-   }
 
    const clearFormHandler = () => {
       setApartmentData({
