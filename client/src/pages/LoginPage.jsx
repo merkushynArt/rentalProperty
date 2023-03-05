@@ -33,7 +33,7 @@ export const LoginPage = () => {
          className='form'
          onSubmit={(e) => e.preventDefault()}
       >
-         <h1 className='title'>Вхід до адміністративної панелі</h1>
+         <h1 className='form__title'>Вхід до адміністративної панелі</h1>
 
          <label className='form__input'>
             Ім'я адміністратора

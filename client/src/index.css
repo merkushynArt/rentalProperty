@@ -27,6 +27,7 @@ body {
 }
 
 .title {
+   display: block;
    font-size: 26px;
    line-height: 30px;
 }
@@ -103,6 +104,11 @@ body {
    font-size: 20px;
 }
 
+.navbar__title {
+   color: #fff;
+   text-transform: uppercase;
+}
+
 .navbar__admin a {
    height: 40px;
    padding: 0 10px;
@@ -158,6 +164,13 @@ body {
    gap: 10px;
 }
 
+.form__title {
+   text-transform: uppercase;
+   font-size: 22px;
+   line-height: 28px;
+   text-align: center;
+}
+
 .form__input {
    width: 100%;
    font-size: 16px;
@@ -179,7 +192,7 @@ body {
 /*======================================================================================================*/
 .form-apartment {
    background-color: #fff;
-   padding: 30px;
+   padding: 20px;
    margin-top: 30px;
    border-radius: 20px;
 }
@@ -193,7 +206,7 @@ body {
 .form-apartment__list-item {
    font-size: 18px;
    line-height: 26px;
-   width: 32%;
+   width: 31%;
    display: flex;
    flex-direction: column;
 }
@@ -330,9 +343,9 @@ body {
 }
 
 .apartment-block__img img{
-   min-height: 300px;
    width: 100%;
 }
+
 .apartment-block__info {
    font-size: 20px;
    line-height: 26px;
@@ -365,6 +378,8 @@ body {
 }
 
 .apartment-page__title {
+   font-size: 26px;
+   line-height: 30px;
    display: flex;
    justify-content: space-between;
    margin-bottom: 10px;
@@ -395,6 +410,7 @@ body {
 .apartment-page__description {
    font-weight: 300;
    margin-bottom: 20px;
+   white-space: pre-wrap;
 }
 
 .apartment-page__contacts {
@@ -460,7 +476,7 @@ body {
 }
 /*======================================================================================================*/
 .mySwiper {
-   height: 40vh !important;
+   height: 50vh !important;
    min-height: 260px !important;
    height: auto;
    width: 90% !important;
@@ -486,8 +502,96 @@ body {
 }
 
 .swiper-slide img {
+   width: 100%;
    height: 100%;
    display: block;
    margin: 0 auto;
+   object-fit: contain;
+   object-position: center !important;
 }
 /*======================================================================================================*/
+/*======================================================================================================*/
+/*======================================================================================================*/
+/*======================================================================================================*/
+/*======================================================================================================*/
+@media screen and (max-width: 768px) {
+   .form-apartment__list-item {
+      width: 46% !important;
+   }
+}
+/*======================================================================================================*/
+@media screen and (max-width: 600px) {
+   .title {
+      font-size: 20px;
+      height: 24px;
+   }
+
+   .Title {
+      font-size: 24px;
+      line-height: 30px;
+   }
+/*======================================================================================================*/
+   .apartment-page__title {
+      font-size: 18px;
+      line-height: 22px;
+   }
+
+   .apartment-page__info {
+      gap: 5px;
+   }
+
+   .apartment-page__contacts span {
+      font-size: 18px;
+      line-height: 22px;
+   }
+}
+/*======================================================================================================*/
+@media screen and (max-width: 500px) {
+   .navbar__list-item span {
+      display: none;
+   }
+/*======================================================================================================*/
+   .form {
+      gap: 5px;
+   }
+   .form__title {
+      font-size: 18px;
+      line-height: 26px;
+   }
+/*======================================================================================================*/
+   .main-page {
+      margin-top: 10px;
+   }
+
+   .search {
+      padding: 10px;
+      display: block;
+   }
+
+   .search__street {
+      display: block;
+      max-width: 100% !important;
+      width: 100% !important;
+      margin-bottom: 5px;
+   }
+
+   .search__metro select{
+      width: 100%;
+   }
+
+   .search svg {
+      display: none;
+   }
+
+   .apartment-block__info {
+      font-size: 18px;
+   }
+/*======================================================================================================*/
+   .mySwiper{
+      width: 100% !important;
+   }
+/*======================================================================================================*/
+.form-apartment__list-item {
+   width: 100% !important;
+   }
+}

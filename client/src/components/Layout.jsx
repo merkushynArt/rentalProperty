@@ -7,8 +7,9 @@ export const Layout = ({ children }) => {
          <div className="navbar-block">
             <NavBar/>
          </div>
-
+      <div className="container">
          { children }
+      </div>
       </React.Fragment>
    );
 }

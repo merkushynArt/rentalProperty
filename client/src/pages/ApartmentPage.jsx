@@ -69,8 +69,8 @@ export const ApartmentPage = () => {
             <SwiperSlide><img src={apartment.img[6]} alt=""/></SwiperSlide>
          </Swiper>
 
-         <div className='apartment-page__title Title'>
-            <div>{ apartment.title }</div>
+         <div className='apartment-page__title'>
+            <h3>{ apartment.title }</h3>
             <div>{ apartment.price }</div>
          </div>
 

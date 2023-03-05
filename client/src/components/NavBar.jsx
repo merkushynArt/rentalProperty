@@ -22,14 +22,16 @@ export const NavBar = () => {
       <nav className='navbar'>
          <ul className='navbar__list'>
             <li className='navbar__list-item'>
-               <NavLink to="/"><RiHome2Fill/> Головна</NavLink>
+               <NavLink to="/"><RiHome2Fill/> <span>Головна</span></NavLink>
             </li>
             {isAuth && (
                <li className='navbar__list-item'>
-                  <NavLink to="/new"><IoIosAddCircle/> Добавити квартиру</NavLink>
+                  <NavLink to="/new"><IoIosAddCircle/><span>Добавити квартиру</span></NavLink>
                </li>
             )}
          </ul>
+
+         {!isAuth && (<div className='navbar__title'>Оренда нерухомості у Києві</div>)}
 
          <div className='navbar__admin'>
             {isAuth ? (

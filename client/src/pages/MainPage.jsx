@@ -15,7 +15,6 @@ export const MainPage = () => {
    const filterApartments = apartments.filter((apartment) => {
       let searchApartment = apartment.street.toLowerCase().includes(street.toLowerCase());
       let searchMetro = apartment.metro.toLowerCase().includes(metro.toLowerCase());
-      console.log(searchApartment, searchMetro);
 
       return searchApartment && searchMetro;
    });
@@ -68,7 +67,7 @@ export const MainPage = () => {
 
                <div className='search__metro'>
                   <select value={metro} onChange={(e) => setMetro(e.target.value)}>
-                     <option value="">вибрати</option>
+                     <option value="">метро</option>
                      <option value="Політехнічний Інститут">Політехнічний Інститут</option>
                      <option value="Вокзальна">Вокзальна</option>
                      <option value="Університет">Університет</option>
@@ -89,11 +88,11 @@ export const MainPage = () => {
                   </select>
                </div>
             </form>
-         </div>
 
-         {filterApartments?.map((apartment, idx) => (
+            {filterApartments?.map((apartment, idx) => (
             <ApartmentBlock key={idx} apartment={apartment} />
          ))}
+         </div>
       </div>
    );
 }
