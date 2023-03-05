@@ -5,17 +5,19 @@ import { getAllApartments } from '../redux/features/apartments/apartmentSlice.js
 import { AiOutlineSearch } from 'react-icons/ai';
 
 export const MainPage = () => {
-   const [value, setValue] = useState('');
+   const [street, setStreet] = useState('');
+   const [metro, setMetro] = useState('');
    const [isOpen, setIsOpen] = useState(true);
 
    const { apartments } = useSelector((state) => state.apartment);
    const dispatch = useDispatch();
 
    const filterApartments = apartments.filter((apartment) => {
-      let searchApartment = apartment.street.toLowerCase().includes(value.toLowerCase());
-      console.log(searchApartment);
-   
-      return searchApartment;
+      let searchApartment = apartment.street.toLowerCase().includes(street.toLowerCase());
+      let searchMetro = apartment.metro.toLowerCase().includes(metro.toLowerCase());
+      console.log(searchApartment, searchMetro);
+
+      return searchApartment && searchMetro;
    });
 
    useEffect(() => {
@@ -29,7 +31,7 @@ export const MainPage = () => {
    }
 
    const itemClickHandler = (e) => {
-      setValue(e.target.textContent);
+      setStreet(e.target.textContent);
       setIsOpen(!isOpen);
    }
 
@@ -42,30 +44,55 @@ export const MainPage = () => {
          <div className="container">
             <form className='search'>
                <AiOutlineSearch/>
+
                <div className='search__street'>
                   <input 
                      type="text" 
                      className='search__input'
                      placeholder='Вулиця'
-                     value={value}
+                     value={street}
                      onChange={(e) => { 
-                        setValue(e.target.value);
+                        setStreet(e.target.value);
                         console.log(apartments);
                      }}
                      onClick={inputClickHandler}
                   />
                   <ul className='autocomplete'>
                      {
-                        value && isOpen ? filterApartments?.map((apartment, idx) => (
+                        street && isOpen ? filterApartments?.map((apartment, idx) => (
                            <li className='autocomplete__item' onClick={itemClickHandler}>{apartment.street}</li>
                         )) : null
                      }
                   </ul>
                </div>
+
+               <div className='search__metro'>
+                  <select value={metro} onChange={(e) => setMetro(e.target.value)}>
+                     <option value="">вибрати</option>
+                     <option value="Політехнічний Інститут">Політехнічний Інститут</option>
+                     <option value="Вокзальна">Вокзальна</option>
+                     <option value="Університет">Університет</option>
+                     <option value="Театральна">Театральна</option>
+                     <option value="Хрещатик">Хрещатик</option>
+                     <option value="Арсенальна">Арсенальна</option>
+                     <option value="Майдан Незалежності">Майдан Незалежності</option>
+                     <option value="Олімпійська">Олімпійська</option>
+                     <option value="Палац Україна">Палац Україна</option>
+                     <option value="Либідска">Либідска</option>
+                     <option value="Деміївска">Деміївска</option>
+                     <option value="Лук'янівська">Лук'янівська</option>
+                     <option value="Золоті Ворота">Золоті Ворота</option>
+                     <option value="Палац Спорту">Палац Спорту</option>
+                     <option value="Кловська">Кловська</option>
+                     <option value="Печерска">Печерска</option>
+                     <option value="Дружби Народів">Дружби Народів</option>
+                  </select>
+               </div>
             </form>
          </div>
+
          {filterApartments?.map((apartment, idx) => (
-            <ApartmentBlock key={idx} apartment={apartment}/>
+            <ApartmentBlock key={idx} apartment={apartment} />
          ))}
       </div>
    );

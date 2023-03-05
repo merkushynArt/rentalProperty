@@ -276,7 +276,8 @@ body {
 
 .search__street {
    position: relative;
-   width: 60%;
+   max-width: 270px;
+   width: 100%;
 }
 
 .search__input {
@@ -295,6 +296,7 @@ body {
    background-color: #fff;
    font-weight: 300;
    cursor: pointer;
+   max-height: 150px;
 }
 
 .autocomplete li {
@@ -306,6 +308,12 @@ body {
 
 .autocomplete li:hover {
    background-color: #f2f4f5;
+}
+
+.search__metro select{
+   width: 164px;
+   height: 28px;
+   outline: none;
 }
 /*======================================================================================================*/
 .apartment-block {
