@@ -483,12 +483,12 @@ body {
    margin-bottom: 20px;
 }
 
-.swiper-button-prev::after,
+.mySwiper .swiper-button-prev::after,
 .swiper-button-next::after {
    color: #002f34;
 }
 
-.swiper-pagination {
+.mySwiper .swiper-pagination {
    background: #fff;
    width: auto !important;
    left: 50% !important;
@@ -497,11 +497,77 @@ body {
    padding: 0 5px;
 }
 
-.swiper-pagination-bullet-active {
+.mySwiper.swiper-pagination-bullet-active {
    background-color: #002f34 !important;
 }
 
-.swiper-slide img {
+.mySwiper .swiper-slide img {
+   width: 100%;
+   height: 100%;
+   display: block;
+   margin: 0 auto;
+   object-fit: contain;
+   object-position: center !important;
+}
+/*======================================================================================================*/
+.modal__wrapper {
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background: #000;
+   backdrop-filter: blur(10px);
+   z-index: 100;
+}
+
+.modal__wrapper.open {
+   display: block;
+   height: 100%;
+}
+
+.modal__wrapper.close {
+   display: none;
+   height: 0;
+}
+
+.modal__close {
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   z-index: 100;
+   font-size: 36px;
+   font-weight: 300;
+   color: #fff;
+   cursor: pointer;
+}
+
+.mySwiper__modal {
+   height: 100vh !important;
+   min-height: 260px !important;
+   height: auto;
+   width: 100% !important;
+}
+
+.mySwiper__modal .swiper-button-prev::after,
+.mySwiper__modal .swiper-button-next::after {
+   color: #fff;
+}
+
+.mySwiper__modal .swiper-pagination {
+   background: #fff;
+   width: auto !important;
+   left: 50% !important;
+   transform: translateX(-50%) !important;
+   border-radius: 20px;
+   padding: 0 5px;
+}
+
+.mySwiper__modal.swiper-pagination-bullet-active {
+   background-color: #002f34 !important;
+}
+
+.mySwiper__modal .swiper-slide img {
    width: 100%;
    height: 100%;
    display: block;

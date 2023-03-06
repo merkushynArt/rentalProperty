@@ -11,9 +11,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AiFillDelete } from 'react-icons/ai';
 import { removeApartment } from '../redux/features/apartments/apartmentSlice.js';
 import { toast } from 'react-toastify';
+import { Modal } from '../components/Modal.jsx';
 
 export const ApartmentPage = () => {
    const [apartment, setApartment] = useState(null);
+   const [open, setOpen] = useState(false)
+
+   const opemModal = () => {
+      setOpen(true);
+   }
 
    const params = useParams();
    const isAuth = useSelector(checkIsAuth);
@@ -49,6 +55,7 @@ export const ApartmentPage = () => {
    }
    return (
       <div className='apartment-page'>
+         <Modal isOpen={open} modalClose={() => setOpen(false)} img={apartment.img}/>
          <Swiper
             slidesPerView={1}
             spaceBetween={30}
@@ -60,13 +67,13 @@ export const ApartmentPage = () => {
             modules={[Pagination, Navigation]}
             className="mySwiper"
             >
-            <SwiperSlide><img src={apartment.img[0]} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={apartment.img[1]} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={apartment.img[2]} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={apartment.img[3]} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={apartment.img[4]} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={apartment.img[5]} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={apartment.img[6]} alt=""/></SwiperSlide>
+            <SwiperSlide onClick={opemModal}><img src={apartment.img[0]} alt=""/></SwiperSlide>
+            <SwiperSlide onClick={opemModal}><img src={apartment.img[1]} alt=""/></SwiperSlide>
+            <SwiperSlide onClick={opemModal}><img src={apartment.img[2]} alt=""/></SwiperSlide>
+            <SwiperSlide onClick={opemModal}><img src={apartment.img[3]} alt=""/></SwiperSlide>
+            <SwiperSlide onClick={opemModal}><img src={apartment.img[4]} alt=""/></SwiperSlide>
+            <SwiperSlide onClick={opemModal}><img src={apartment.img[5]} alt=""/></SwiperSlide>
+            <SwiperSlide onClick={opemModal}><img src={apartment.img[6]} alt=""/></SwiperSlide>
          </Swiper>
 
          <div className='apartment-page__title'>
@@ -126,8 +133,6 @@ export const ApartmentPage = () => {
                </div>
             )
          }
-
-         
       </div>
    );
 }
