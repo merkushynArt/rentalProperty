@@ -58,7 +58,7 @@ export const authSlice = createSlice({
       },
       [loginAdmin.fulfilled]: (state, action) => {
          state.isLoading = false;
-         state.status = action.payload.massage;
+         state.status = action.payload.message;
          state.admin = action.payload.admin;
          state.token = action.payload.token;
       },

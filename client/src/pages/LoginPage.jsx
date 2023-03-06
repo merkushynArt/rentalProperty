@@ -18,6 +18,9 @@ export const LoginPage = () => {
          navigate('/');
          toast(`Вітаю ${admin.adminname}`);
       } 
+      if(!isAuth) {
+         toast('Тільки для адміністратора...');
+      }
    }, [admin, isAuth, navigate]);
 
    const handleSubmit = () => {
