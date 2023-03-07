@@ -20,6 +20,7 @@ export const AddApartmentPage = () => {
       sellerName: '',
       sellerType: '',
       commission: '',
+      notes: '',
       sellerPhone: '',
       description: '',
       img: Array(7).fill(''),
@@ -58,6 +59,7 @@ export const AddApartmentPage = () => {
          bathroom: '',
          sellerName: '',
          sellerType: '',
+         notes: '',
          commission: '',
          sellerPhone: '',
          description: '',
@@ -225,6 +227,14 @@ export const AddApartmentPage = () => {
                   type='text'
                   value={apartmentData.sellerPhone}
                   onChange={(e) => setApartmentData({ ...apartmentData, sellerPhone: e.target.value })}
+               />
+            </label>
+
+            <label className='form-apartment__list-item--notes'>
+               Особисті нотатки:
+               <TextareaAutosize
+                  value={apartmentData.notes}
+                  onChange={(e) => setApartmentData({ ...apartmentData, notes: e.target.value })}
                />
             </label>
 

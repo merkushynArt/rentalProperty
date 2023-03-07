@@ -8,9 +8,9 @@ const initialState = {
 */
 export const createApartment = createAsyncThunk(
    'apartment/createApartment',
-   async ( params/*{ title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }*/) => {
+   async ( params) => {
       try {
-         const { data } = await axios.post('/apartments', params /*{ title, street, houseNumber, metro, houseType, price, floor, floorMax, apartmentArea, numberRooms, bathroom, sellerName, sellerType, commission, sellerPhone, description, img }*/);
+         const { data } = await axios.post('/apartments', params);
          return data;
       } catch (error) {
          console.log(error);
@@ -103,22 +103,6 @@ export const apartmentSlice = createSlice({
 });
 */
 
-// Update post
-/*
-[updateApartment.pending]: (state) => {
-   state.loading = true;
-},
-[updateApartment.fulfilled]: (state, action) => {
-   state.loading = false;
-   const index = state.posts.findIndex(
-      (apartment) => apartment._id === action.payload._id
-   )
-   state.apartments[index] = action.payload;
-},
-[updateApartment.rejected]: (state) => {
-   state.loading = false;
-},
-*/
 
 export const apartmentSlice = createSlice({
    name: 'apartment',

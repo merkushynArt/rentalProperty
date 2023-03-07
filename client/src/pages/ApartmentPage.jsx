@@ -112,11 +112,12 @@ export const ApartmentPage = () => {
          {isAuth? (
             <div className='apartment-page__secred'>
                <div>
-                  <div className='apartment-page__secred-name'>{apartment.sellerName}</div>
+                  <div className='apartment-page__secred-name'>{ apartment.sellerName }</div>
                   <div className='apartment-page__secred-list'>
                      <span>{ apartment.sellerType }</span>
                      <span>{ apartment.commission }</span>
                   </div>
+                  <p className='apartment-page__secred-notes'>{ apartment.notes }</p>
                   <a className='btn secred' href={`tel:${apartment.sellerPhone}`}>{ apartment.sellerPhone }</a>
                </div>
                {admin?._id === apartment.realtorAdmin && (

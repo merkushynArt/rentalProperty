@@ -47,6 +47,9 @@ const ApartmentSchema = new mongoose.Schema(
       sellerPhone: {
          type: String,
       },
+      notes: {
+         type: String,
+      },
       adminname: { 
          type: String ,
       },

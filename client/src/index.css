@@ -213,7 +213,8 @@ body {
 
 .form-apartment__list-item input,
 .form-apartment__list-item select,
-.form-apartment__list-item textarea {
+.form-apartment__list-item textarea,
+.form-apartment__list-item--notes textarea {
    font-size: 16px;
    line-height: 20px;
    padding: 5px 10px;
@@ -224,7 +225,8 @@ body {
 
 .form-apartment__list-item input:focus,
 .form-apartment__list-item select:focus,
-.form-apartment__list-item textarea:focus {
+.form-apartment__list-item textarea:focus,
+.form-apartment__list-item--notes textarea:focus {
    background-color: #f2f4f5;
 }
 
@@ -234,6 +236,11 @@ body {
 
 .form-apartment__list-item textarea{
    min-height: 200px;
+}
+
+.form-apartment__list-item--notes textarea {
+   display: block;
+   min-height: 100px;
 }
 
 .form-apartment__img {
