@@ -19,6 +19,7 @@ export const ApartmentPage = () => {
 
    const opemModal = () => {
       setOpen(true);
+      document.body.style.overflow = "hidden";
    }
 
    const params = useParams();
@@ -55,7 +56,6 @@ export const ApartmentPage = () => {
    }
    return (
       <div className='apartment-page'>
-         <Modal isOpen={open} modalClose={() => setOpen(false)} img={apartment.img}/>
          <Swiper
             slidesPerView={1}
             spaceBetween={30}
@@ -133,6 +133,8 @@ export const ApartmentPage = () => {
                </div>
             )
          }
+
+         <Modal isOpen={open} modalClose={() => setOpen(false)} img={apartment.img}/>
       </div>
    );
 }

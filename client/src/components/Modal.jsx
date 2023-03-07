@@ -6,9 +6,22 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export const Modal = (props) => {
+   //Повернути прокрутку при закритті модального вікна
+   const handleModalClose = () => {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "static";
+      props.modalClose();
+   };
+
+   //Заборонити прокрутку при відкритті модального вікна
+   const handleModalOpen = () => {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+   };
+
    return (
-      <div className={`modal__wrapper ${props.isOpen ? 'open' : 'close'}`}>
-         <div className='modal__close' onClick={props.modalClose}>x</div>
+      <div className={`modal__wrapper ${props.isOpen ? 'open' : 'close'}`} onclick={handleModalOpen}>
+         <div className='modal__close' onClick={handleModalClose}>x</div>
 
          <Swiper
             slidesPerView={1}
@@ -30,5 +43,5 @@ export const Modal = (props) => {
             <SwiperSlide><img src={props.img[6]} alt=""/></SwiperSlide>
          </Swiper>
       </div>
-   )
+   );
 }

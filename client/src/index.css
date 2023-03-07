@@ -511,20 +511,20 @@ body {
    object-position: center !important;
 }
 /*======================================================================================================*/
+
 .modal__wrapper {
-   position: fixed;
-   top: 0;
-   left: 0;
-   bottom: 0;
    width: 100%;
    background: #000;
-   backdrop-filter: blur(10px);
    z-index: 100;
 }
 
 .modal__wrapper.open {
-   display: block;
-   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   overflow-y: auto;
 }
 
 .modal__wrapper.close {
