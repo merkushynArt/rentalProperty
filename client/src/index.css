@@ -203,7 +203,8 @@ body {
    gap: 19px;
 }
 
-.form-apartment__list-item {
+.form-apartment__list-item, 
+.form-apartment__list-item--notes {
    font-size: 18px;
    line-height: 26px;
    width: 31%;
@@ -591,6 +592,11 @@ body {
 @media screen and (max-width: 768px) {
    .form-apartment__list-item {
       width: 46% !important;
+   }
+
+   .form-apartment__list-item,
+   .form-apartment__list-item--notes {
+      width: 100% !important;
    }
 }
 /*======================================================================================================*/
