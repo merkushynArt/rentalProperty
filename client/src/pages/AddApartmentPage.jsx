@@ -116,7 +116,7 @@ export const AddApartmentPage = () => {
                   <option value="Майдан Незалежності">Майдан Незалежності</option>
                   <option value="Олімпійська">Олімпійська</option>
                   <option value="Палац Україна">Палац Україна</option>
-                  <option value="Либідска">Либідска</option>
+                  <option value="Либідська">Либідська</option>
                   <option value="Деміївска">Деміївска</option>
                   <option value="Лук'янівська">Лук'янівська</option>
                   <option value="Золоті Ворота">Золоті Ворота</option>
